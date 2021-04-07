@@ -4,10 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//'Provider' Envolve a aplicação inteira para ser possível o acesso ao 'state', integrando o react com o redux
+import { Provider } from 'react-redux'
+import configStore from './store/storeConfig'
+
+const store = configStore()
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
